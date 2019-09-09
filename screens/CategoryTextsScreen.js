@@ -1,29 +1,33 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 
-import { CATEGORIES } from '../data/dummy-data';
+import { CATEGORIES, TEXTS } from '../data/dummy-data';
+import CategoryGridTile from '../components/CategoryGridTile';
 
 const CategoryTextsScreen = (props) => {
+	const renderTextItem = (itemData) => {
+		return (
+			<CategoryGridTile
+			color={itemData.item.color}
+			title={itemData.item.title}
+			onSelect={() => {
+				props.navigation.navigate({
+					routeName: 'TextDetail',
+					params: {
+						categoryId: itemData.item.id
+					}
+				});
+			}}
+		/>
+		)
+	}
 	const catId = props.navigation.getParam('categoryId');
-	const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
-
+	const displayedTexts = TEXTS.filter(text => text.categoryIds.indexOf(catId) >=0)
 	return (
-		<View style={styles.screen}>
-			<Text>The Category Texts Screen</Text>
-			<Text>{selectedCategory.title} </Text>
-			<Button
-				title="Go to Text Detail"
-				onPress={() => {
-					props.navigation.navigate({ routeName: 'TextDetail' });
-				}}
+			<FlatList numColumns={2} data={displayedTexts} 
+			keyExtractor={(item, index) => item.id} 
+			renderItem={renderTextItem}
 			/>
-			<Button
-				title="Go back"
-				onPress={() => {
-					props.navigation.goBack();
-				}}
-			/>
-		</View>
 	);
 };
 
@@ -36,12 +40,12 @@ CategoryTextsScreen.navigationOptions = (navData) => {
 	}
 };
 
-const styles = StyleSheet.create({
-	screen: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center'
-	}
-});
+// const styles = StyleSheet.create({
+// 	screen: {
+// 		flex: 1,
+// 		justifyContent: 'center',
+// 		alignItems: 'center'
+// 	}
+// });
 
 export default CategoryTextsScreen;

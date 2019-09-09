@@ -1,4 +1,6 @@
 import Category from '../models/category';
+import Text from '../models/Text';
+import Colors from '../constants/Colors';
 
 export const CATEGORIES = [
     new Category('c1', 'Βιβλικά', '#FFFACD'), // lemonchiffon
@@ -14,4 +16,25 @@ export const CATEGORIES = [
     new Category('c11', 'Περιοδικά', '#BDB76B'), // darkkhaki
     new Category('c12', 'Λεξικά', '#F5F5DC'), // beige
 
+]
+
+export const TEXTS = [
+    new Text({
+        id: 't1',
+        categoryIds: ['c1'],
+        color: Colors.lightyellow,
+        title: 'Καινή Διαθήκη',
+        // image: require('../assets/images/matheon.jpg'),
+        holly: true,
+        scholarly: false
+    }),
+    new Text({
+        id: 't2',
+        categoryIds: ['c1'],
+        title: 'Ψαλτήριον',
+        color: Colors.moccasin,
+        // image: require('../assets/images/psaltirion.jpg'),
+        holly: true,
+        scholarly: false
+    })
 ]

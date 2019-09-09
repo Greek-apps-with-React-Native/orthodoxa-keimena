@@ -5,21 +5,25 @@ import React from 'react';
 import { View, Button, FlatList, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { CATEGORIES } from '../data/dummy-data';
+import CategoryGridTile from '../components/CategoryGridTile';
 
 const CategoriesScreen = (props) => {
-    const renderGridItem = (itemData) => {
-        return (
-            <TouchableOpacity style={styles.gridItem} onPress={() => {
-                props.navigation.navigate({routeName: 'CategoryTexts', params: {
-                    categoryId: itemData.item.id
-                }})
-            }} >
-                <View >
-                    <Text>{itemData.item.title} </Text>
-                </View>
-            </TouchableOpacity>
-        );
-    };
+	const renderGridItem = (itemData) => {
+		return (
+			<CategoryGridTile
+				color={itemData.item.color}
+				title={itemData.item.title}
+				onSelect={() => {
+					props.navigation.navigate({
+						routeName: 'CategoryTexts',
+						params: {
+							categoryId: itemData.item.id
+						}
+					});
+				}}
+			/>
+		);
+	};
 	return (
 		<FlatList
 			numColumns={2}
@@ -31,20 +35,15 @@ const CategoriesScreen = (props) => {
 };
 
 CategoriesScreen.navigationOptions = {
-    headerTitle: 'Κατηγορίες κειμένων',
-}
+	headerTitle: 'Κατηγορίες κειμένων'
+};
 
-const styles = StyleSheet.create({
-	screen: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
-	gridItem: {
-		flex: 1,
-		margin: 15,
-		height: 50
-	}
-});
+// const styles = StyleSheet.create({
+// 	screen: {
+// 		flex: 1,
+// 		justifyContent: 'center',
+// 		alignItems: 'center'
+// 	}
+// });
 
 export default CategoriesScreen;

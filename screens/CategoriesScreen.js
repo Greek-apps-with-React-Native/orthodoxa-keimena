@@ -2,12 +2,16 @@
 // e.g. Biblical, Dogmatic, History etc
 
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Button, Text, StyleSheet } from 'react-native';
 
 const CategoriesScreen = (props) => {
 	return (
 		<View style={styles.screen}>
-			<Text>The Categories Screen</Text>{' '}
+			<Text>The Categories Screen</Text>
+            <Button title="Go to Texts" onPress={() => {
+                props.navigation.navigate({routeName: 'CategoryTexts'})
+            }} />
+
 		</View>
 	);
 };

@@ -4,7 +4,10 @@ Success!
 Happy coding :)
 
 ### Packages installed:
-#### expo-font
+#### expo-font (GFSNeohellenic)
+#### react-navigation
+#### react-native-gesture-handler (needed for using react-navigation with expo)
+#### react-native-reanimated (needed for using react-navigation with expo)
 
 
 ### Branches explained: 

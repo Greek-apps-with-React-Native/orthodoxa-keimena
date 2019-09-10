@@ -4,7 +4,7 @@ import { FlatList } from 'react-native';
 import { CHAPTERS } from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
 
-const TextDetailScreen = (props) => {
+const ChaptersScreen = (props) => {
 	const renderChapterItem = (itemData) => {
 		return (
 			<CategoryGridTile
@@ -32,4 +32,4 @@ const TextDetailScreen = (props) => {
         />;
 };
 
-export default TextDetailScreen;
+export default ChaptersScreen;

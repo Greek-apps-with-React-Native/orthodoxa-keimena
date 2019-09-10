@@ -2,18 +2,20 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import CategoriesScreen from '../screens/CategoriesScreen';
-import CategoryTextsScreen from '../screens/CategoryTextsScreen';
+import CategoryBooksScreen from '../screens/CategoryBooksScreen';
 import TextDetailScreen from '../screens/TextDetailScreen';
+import ChaptersScreen from '../screens/ChaptersScreen';
 import Colors from '../constants/Colors';
 
-const TextsNavigator = createStackNavigator({
+const BooksNavigator = createStackNavigator({
 	Categories: {
         screen: CategoriesScreen,
 	},
-	CategoryTexts: {
-		screen: CategoryTextsScreen,
+	CategoryBooks: {
+		screen: CategoryBooksScreen,
 	},
-	TextDetail: TextDetailScreen
+	Chapters: ChaptersScreen,
+	TextDetail: TextDetailScreen,
 }, {
 	defaultNavigationOptions: {
 		initialRouteName: 'CategoriesScreen',
@@ -25,4 +27,4 @@ const TextsNavigator = createStackNavigator({
         }
 });
 
-export default createAppContainer(TextsNavigator);
+export default createAppContainer(BooksNavigator);

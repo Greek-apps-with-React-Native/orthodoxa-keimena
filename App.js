@@ -4,7 +4,7 @@ import * as Fonts from 'expo-font';
 import { AppLoading } from 'expo';
 import { useScreens } from 'react-native-screens';
 
-import TextsNavigator from './navigation/TextsNavigator';
+import BooksNavigator from './navigation/BooksNavigator';
 
 useScreens();
  
@@ -24,14 +24,7 @@ export default function App() {
 		return <AppLoading startAsync={fetchFonts} onFinish={() => setFontLoaded(true)} />;
 	}
 
-	return <TextsNavigator />;
+	return <BooksNavigator />;
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center'
-	}
-});
+

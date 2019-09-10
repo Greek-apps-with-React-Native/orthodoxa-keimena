@@ -1,40 +1,63 @@
 import Category from '../models/category';
-import Text from '../models/Text';
+import Book from '../models/book';
+import Chapter from '../models/chapter';
+import Text from '../models/text';
+
+
 import Colors from '../constants/Colors';
 
 export const CATEGORIES = [
-    new Category('c1', 'Βιβλικά', '#FFFACD'), // lemonchiffon
-    new Category('c2', 'Δογματική', '#40E0D0'), // turquoise
-    new Category('c3', 'Πατερικά', '#00BFFF'), // deepskyblue
-    new Category('c4', 'Αγιολογικά', '#F5DEB3'), // wheat
-    new Category('c5', 'Ασκητικά', '#F4A460'), // sandybrown
-    new Category('c6', 'Εκκλησιαστική Ιστορία', '#FF7F50'), // coral
-    new Category('c7', 'Λειτουργικά', '#808000'), // olive
-    new Category('c8', 'Ιεροί Κανόνες', '#F0E68C'), // khaki
-    new Category('c9', 'Θρησκειολογικά', '#D3D3D3'), // lightgray
-    new Category('c10', 'Ξενόγλωσσα', '#CD5C5C'), // indianred
-    new Category('c11', 'Περιοδικά', '#BDB76B'), // darkkhaki
-    new Category('c12', 'Λεξικά', '#F5F5DC'), // beige
+	new Category('c1', 'Βιβλικά', '#FFFACD'), // lemonchiffon
+	new Category('c2', 'Δογματική', '#40E0D0'), // turquoise
+	new Category('c3', 'Πατερικά', '#00BFFF'), // deepskyblue
+	new Category('c4', 'Αγιολογικά', '#F5DEB3'), // wheat
+	new Category('c5', 'Ασκητικά', '#F4A460'), // sandybrown
+	new Category('c6', 'Εκκλησιαστική Ιστορία', '#FF7F50'), // coral
+	new Category('c7', 'Λειτουργικά', '#808000'), // olive
+	new Category('c8', 'Ιεροί Κανόνες', '#F0E68C'), // khaki
+	new Category('c9', 'Θρησκειολογικά', '#D3D3D3'), // lightgray
+	new Category('c10', 'Ξενόγλωσσα', '#CD5C5C'), // indianred
+	new Category('c11', 'Περιοδικά', '#BDB76B'), // darkkhaki
+	new Category('c12', 'Λεξικά', '#F5F5DC') // beige
+];
 
-]
+export const BOOKS = [
+	new Book({
+		id: 't1',
+		categoryIds: [ 'c1' ],
+		color: Colors.lightyellow,
+		title: 'Καινή Διαθήκη',
+		// image: require('../assets/images/matheon.jpg'),
+		holly: true,
+		scholarly: false
+	}),
+	new Book({
+		id: 't2',
+		categoryIds: [ 'c1' ],
+		title: 'Ψαλτήριον',
+		color: Colors.moccasin,
+		// image: require('../assets/images/psaltirion.jpg'),
+		holly: true,
+		scholarly: false
+	})
+];
+
+export const CHAPTERS = [
+	new Chapter({
+        id: 'c1',
+        color: Colors.lightyellow,
+        // categoryIds: [ 'cat1' ],
+        heading: 'ΚΑΤΑ ΜΑΤΘΑΙΟΝ',
+		title: 'Κεφάλαιο α΄',
+		subTitle: 'Γενεαλογία τοῦ ᾿Ιησοῦ Χριστοῦ',
+	})
+];
 
 export const TEXTS = [
-    new Text({
+	new Text({
         id: 't1',
-        categoryIds: ['c1'],
-        color: Colors.lightyellow,
-        title: 'Καινή Διαθήκη',
-        // image: require('../assets/images/matheon.jpg'),
-        holly: true,
-        scholarly: false
-    }),
-    new Text({
-        id: 't2',
-        categoryIds: ['c1'],
-        title: 'Ψαλτήριον',
-        color: Colors.moccasin,
-        // image: require('../assets/images/psaltirion.jpg'),
-        holly: true,
-        scholarly: false
-    })
-]
+		text: '1 Βίβλος γενέσεως ᾿Ιησοῦ Χριστοῦ, υἱοῦ Δαυῒδ, υἱοῦ ᾿Αβραάμ.  2 ᾿Αβραὰμ ἐγέννησε τὸν ᾿Ισαάκ, ᾿Ισαὰκ δὲ ἐγέννησε τὸν ᾿Ιακώβ, ᾿Ιακὼβ δὲ ἐγέννησε τὸν ᾿Ιούδαν καὶ τοὺς ἀδελφοὺς αὐτοῦ,  3 ᾿Ιούδας δὲ ἐγέννησε τὸν Φαρὲς καὶ τὸν Ζαρὰ ἐκ τῆς Θάμαρ, Φαρὲς δὲ ἐγέννησε τὸν ᾿Εσρώμ, ᾿Εσρὼμ δὲ ἐγέννησε τὸν ᾿Αράμ,  4 ᾿Αρὰμ δὲ ἐγέννησε τὸν ᾿Αμιναδάβ, ᾿Αμιναδὰβ δὲ ἐγέννησε τὸν Ναασσών, Ναασσὼν δὲ ἐγέννησε τὸν Σαλμών,  5 Σαλμὼν δὲ ἐγέννησε τὸν Βοὸζ ἐκ τῆς Ραχάβ, Βοὸζ δὲ ἐγέννησε τὸν ᾿Ωβὴδ ἐκ τῆς Ρούθ, ᾿Ωβὴδ δὲ ἐγέννησε τὸν ᾿Ιεσσαί,  6 ᾿Ιεσσαὶ δὲ ἐγέννησε τὸν Δαυῒδ τὸν βασιλέα. Δαυῒδ δὲ ὁ βασιλεὺς ἐγέννησε τὸν Σολομῶντα ἐκ τῆς τοῦ Οὐρίου,  7 Σολομὼν δὲ ἐγέννησε τὸν Ροβοάμ, Ροβοὰμ δὲ ἐγέννησε τὸν ᾿Αβιά, ᾿Αβιὰ δὲ ἐγέννησε τὸν ᾿Ασά,  8 ᾿Ασὰ δὲ ἐγέννησε τὸν ᾿Ιωσαφάτ, ᾿Ιωσαφὰτ δὲ ἐγέννησε τὸν ᾿Ιωράμ, ᾿Ιωρὰμ δὲ ἐγέννησε τὸν ᾿Οζίαν,  9 ᾿Οζίας δὲ ἐγέννησε τὸν ᾿Ιωάθαμ, ᾿Ιωάθαμ δὲ ἐγέννησε τὸν ῎Αχαζ, ῎Αχαζ δὲ ἐγέννησε τὸν ᾿Εζεκίαν,  10 ᾿Εζεκίας δὲ ἐγέννησε τὸν Μανασσῆ, Μανασσῆς δὲ ἐγέννησε τὸν ᾿Αμών, ᾿Αμὼν δὲ ἐγέννησε τὸν ᾿Ιωσίαν,  11 ᾿Ιωσίας δὲ ἐγέννησε τὸν ᾿Ιεχονίαν καὶ τοὺς ἀδελφοὺς αὐτοῦ ἐπὶ τῆς μετοικεσίας Βαβυλῶνος.  12 Μετὰ δὲ τὴν μετοικεσίαν Βαβυλῶνος ᾿Ιεχονίας ἐγέννησε τὸν Σαλαθιήλ, Σαλαθιὴλ δὲ ἐγέννησε τὸν Ζοροβάβελ,  13 Ζοροβάβελ δὲ ἐγέννησε τὸν ᾿Αβιούδ, ᾿Αβιοὺδ δὲ ἐγέννησε τὸν ᾿Ελιακείμ, ᾿Ελιακεὶμ δὲ ἐγέννησε τὸν ᾿Αζώρ,  14 ᾿Αζὼρ δὲ ἐγέννησε τὸν Σαδώκ, Σαδὼκ δὲ ἐγέννησε τὸν ᾿Αχείμ, ᾿Αχεὶμ δὲ ἐγέννησε τὸν ᾿Ελιούδ,  15 ᾿Ελιοὺδ δὲ ἐγέννησε τὸν ᾿Ελεάζαρ, ᾿Ελεάζαρ δὲ ἐγέννησε τὸν Ματθάν, Ματθὰν δὲ ἐγέννησε τὸν ᾿Ιακώβ,  16 ᾿Ιακὼβ δὲ ἐγέννησε τὸν ᾿Ιωσὴφ τὸν ἄνδρα Μαρίας, ἐξ ἧς ἐγεννήθη ᾿Ιησοῦς ὁ λεγόμενος Χριστός.  17 Πᾶσαι οὖν αἱ γενεαὶ ἀπὸ ᾿Αβραάμ ἕως Δαυῒδ γενεαὶ δεκατέσσαρες, καὶ ἀπὸ Δαυῒδ ἕως τῆς μετοικεσίας Βαβυλῶνος γενεαὶ δεκατέσσαρες, καὶ ἀπὸ τῆς μετοικεσίας Βαβυλῶνος ἕως τοῦ Χριστοῦ γενεαὶ δεκατέσσαρες. '
+	})
+];
+
+

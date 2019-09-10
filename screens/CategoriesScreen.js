@@ -15,7 +15,7 @@ const CategoriesScreen = (props) => {
 				title={itemData.item.title}
 				onSelect={() => {
 					props.navigation.navigate({
-						routeName: 'CategoryTexts',
+						routeName: 'CategoryBooks',
 						params: {
 							categoryId: itemData.item.id
 						}
@@ -38,12 +38,5 @@ CategoriesScreen.navigationOptions = {
 	headerTitle: 'Κατηγορίες κειμένων'
 };
 
-// const styles = StyleSheet.create({
-// 	screen: {
-// 		flex: 1,
-// 		justifyContent: 'center',
-// 		alignItems: 'center'
-// 	}
-// });
 
 export default CategoriesScreen;

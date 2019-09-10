@@ -1,3 +1,4 @@
+
 function Chapter(info) {
     this.id = info.id; 
     this.color = info.color

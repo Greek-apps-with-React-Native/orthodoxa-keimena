@@ -3,8 +3,10 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryBooksScreen from '../screens/CategoryBooksScreen';
+import NewTestamentModulesScreen from '../screens/NewTestamentModulesScreen';
+import NewTestamentChaptersScreen from '../screens/NewTestamentChaptersScreen';
 import TextDetailScreen from '../screens/TextDetailScreen';
-import ChaptersScreen from '../screens/ChaptersScreen';
+
 import Colors from '../constants/Colors';
 
 const BooksNavigator = createStackNavigator({
@@ -14,7 +16,8 @@ const BooksNavigator = createStackNavigator({
 	CategoryBooks: {
 		screen: CategoryBooksScreen,
 	},
-	Chapters: ChaptersScreen,
+	NewTestamentModules: NewTestamentModulesScreen,
+	NewTestamentChapters: NewTestamentChaptersScreen,
 	TextDetail: TextDetailScreen,
 }, {
 	defaultNavigationOptions: {

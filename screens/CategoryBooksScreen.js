@@ -12,9 +12,9 @@ const CategoryBooksScreen = (props) => {
 			title={itemData.item.title}
 			onSelect={() => {
 				props.navigation.navigate({
-					routeName: 'Chapters',
+					routeName: 'NewTestamentModules',
 					params: {
-						categoryId: itemData.item.id
+						bookId: itemData.item.id
 					}
 				});
 			}}
@@ -26,10 +26,12 @@ const CategoryBooksScreen = (props) => {
 	const catId = props.navigation.getParam('categoryId');
 	const displayedTexts = BOOKS.filter(text => text.categoryIds.indexOf(catId) >=0)
 	return (
-			<FlatList numColumns={2} data={displayedTexts} 
-			keyExtractor={(item, index) => item.id} 
-			renderItem={renderTextItem}
-			/>
+			<FlatList 
+				numColumns={2} 
+				data={displayedTexts} 
+				keyExtractor={(item, index) => item.id} 
+				renderItem={renderTextItem}
+				/>
 	);
 };
 

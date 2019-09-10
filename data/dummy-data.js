@@ -1,8 +1,6 @@
 import Category from '../models/category';
 import Book from '../models/book';
-import Chapter from '../models/chapter';
 import Text from '../models/text';
-
 
 import Colors from '../constants/Colors';
 
@@ -42,16 +40,7 @@ export const BOOKS = [
 	})
 ];
 
-export const CHAPTERS = [
-	new Chapter({
-        id: 'c1',
-        color: Colors.lightyellow,
-        // categoryIds: [ 'cat1' ],
-        heading: 'ΚΑΤΑ ΜΑΤΘΑΙΟΝ',
-		title: 'Κεφάλαιο α΄',
-		subTitle: 'Γενεαλογία τοῦ ᾿Ιησοῦ Χριστοῦ',
-	})
-];
+
 
 export const TEXTS = [
 	new Text({

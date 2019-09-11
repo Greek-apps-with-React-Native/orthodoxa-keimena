@@ -1,13 +1,8 @@
 import React from 'react';
 import { StyleSheet, WebView } from 'react-native';
 
-import { MATHAION } from '../data/NewTestament/matheon';
-import TextItem from '../components/TextItem';
-
 const TextDetailScreen = (props) => {
-	const renderText = data => {
-		return <TextItem longText={data.item.text} />
-	}
+	
 	 
 	return <WebView style={styles.webview}  source={{html: 
 		` <h1> ΚΕΦΑΛΑΙΟ 1 </h1>

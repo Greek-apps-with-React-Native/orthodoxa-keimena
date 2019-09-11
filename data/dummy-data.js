@@ -1,6 +1,5 @@
 import Category from '../models/category';
 import Book from '../models/book';
-import Text from '../models/text';
 
 import Colors from '../constants/Colors';
 

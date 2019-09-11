@@ -9,6 +9,7 @@ Happy coding :)
 #### react-native-gesture-handler (needed for using react-navigation with expo)
 #### react-native-reanimated (needed for using react-navigation with expo)
 #### react-native-screens
+### react-native-webview
 
 ### Branches explained: 
 

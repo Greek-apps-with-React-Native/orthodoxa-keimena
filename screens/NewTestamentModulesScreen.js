@@ -13,9 +13,9 @@ const NewTestamentModulesScreen = (props) => {
 				heading={itemData.item.heading}
 				onSelect={() => {
 					props.navigation.navigate({
-						routeName: 'NewTestamentChapters',
+						routeName: 'TextDetail',
 						params: {
-							moduleId: itemData.item.id
+							textId: itemData.item.id
 						}
 					});
 				}}

@@ -26,7 +26,7 @@ const NewTestamentModulesScreen = (props) => {
 	NewTestamentModulesScreen.navigationOptions = (navData) => {
 		const bookId = navData.navigation.getParam('bookId');
 		const selectedBook = BOOKS.find((book) => book.id === bookId);
-		console.log('bookId', bookId);
+		
 		return {
 			headerTitle: selectedBook.title
 		};

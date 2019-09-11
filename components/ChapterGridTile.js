@@ -7,12 +7,9 @@ const ChapterGridTile = (props) => {
 	return (
 		<View style={styles.gridItem}>
 			<TouchComp style={{ flex: 1 }} onPress={props.onSelect}>
-				<View style={{ ...styles.container, ...{ backgroundColor: props.color } }}>
+				<View style={{ ...styles.container, ...{ backgroundColor: props.color }, ...props.styles}}>
 					<Text numberOfLines={2} style={styles.title}>
-						{props.title} {props.id}
-					</Text>
-					<Text numberOfLines={2} style={styles.title}>
-						{props.subTitle}
+						{props.title}
 					</Text>
 				</View>
 			</TouchComp>
@@ -24,7 +21,7 @@ const styles = StyleSheet.create({
 	gridItem: {
 		flex: 1,
 		margin: 15,
-		height: 70,
+		height: 50,
 		elevation: 5,
 		borderRadius: 10,
 		overflow: Platform.OS === 'android' ? 'hidden' : 'visible'
@@ -36,7 +33,6 @@ const styles = StyleSheet.create({
 		shadowOpacity: 0.6,
 		shadowOffset: { width: 0, height: 2 },
 		shadowRadius: 10,
-
 		padding: 10,
 		justifyContent: 'center',
 		alignItems: 'center'
@@ -44,6 +40,13 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 20,
 		fontFamily: 'GFSNeohellenic-Bold'
+	},
+	subtitle: {
+		fontSize: 20,
+		fontFamily: 'GFSNeohellenic-Bold',
+		flexDirection: 'column',
+		alignItems: 'flex-start',
+		justifyContent: 'space-between'
 	}
 });
 

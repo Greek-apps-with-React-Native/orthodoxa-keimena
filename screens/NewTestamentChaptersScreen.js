@@ -7,11 +7,15 @@ import ChapterGridTile from '../components/ChapterGridTile';
 
 const NewTestamentChaptersScreen = (props) => {
 	const renderChapterItem = (itemData) => {
+		// const subTitles = itemData.item.subTitle
+		// .map((sub, index) => <Text key={index}>{sub}</Text> );
+		// console.log(subTitles);
+		
 		return (
 			<ChapterGridTile
 				color={itemData.item.color}
 				title={itemData.item.title}
-				subTitle={itemData.item.subTitle}
+				// subTitle={subTitles}
 				onSelect={() => {
 					props.navigation.navigate({
 						routeName: 'NewTestamentChapters',
@@ -34,6 +38,7 @@ const NewTestamentChaptersScreen = (props) => {
 	};
 
 	return <FlatList 
+			numColumns={2}
 			data={CHAPTERS} 
 			keyExtractor={(item, index) => item.id} 
 			renderItem={renderChapterItem} 

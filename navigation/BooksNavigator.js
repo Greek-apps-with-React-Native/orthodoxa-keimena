@@ -3,8 +3,9 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryBooksScreen from '../screens/CategoryBooksScreen';
-import NewTestamentModulesScreen from '../screens/NewTestamentModulesScreen';
+import CategoryModulesScreen from '../screens/CategoryModulesScreen';
 import TextDetailScreen from '../screens/TextDetailScreen';
+import MatthaionScreen from '../screens/MatthaionScreen';
 
 import Colors from '../constants/Colors';
 
@@ -15,8 +16,9 @@ const BooksNavigator = createStackNavigator({
 	CategoryBooks: {
 		screen: CategoryBooksScreen,
 	},
-	NewTestamentModules: NewTestamentModulesScreen,
+	CategoryModules: CategoryModulesScreen,
 	TextDetail: TextDetailScreen,
+	Matthaion: MatthaionScreen,
 }, {
 	defaultNavigationOptions: {
 		initialRouteName: 'CategoriesScreen',

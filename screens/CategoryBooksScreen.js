@@ -12,9 +12,9 @@ const CategoryBooksScreen = (props) => {
 			title={itemData.item.title}
 			onSelect={() => {
 				props.navigation.navigate({
-					routeName: 'NewTestamentModules',
+					routeName: 'CategoryModules',
 					params: {
-						bookId: itemData.item.id
+						bookId: itemData.item.id,
 					}
 				});
 			}}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Platform, View, Text, StyleSheet, TouchableNativeFeedback } from 'react-native';
 
-const ModuleGridTile = (props) => {
+const ModuleItem = (props) => {
 	let TouchComp = Platform.OS === 'android' && Platform.Version >= 21 ? TouchableNativeFeedback : TouchableOpacity;
 
 	return (
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default ModuleGridTile;
+export default ModuleItem;

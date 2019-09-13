@@ -37,6 +37,7 @@ const BooksNavigator = createStackNavigator(
 	}
 );
 
+// For FavBottomTabNavigator
 const tabScreenConfig = {
 	Books: {
 		screen: BooksNavigator,
@@ -60,6 +61,7 @@ const tabScreenConfig = {
 	}
 };
 
+// FavBottomTabNavigator
 const defaultNavigationOptions = ({ navigation }) => ({
 	// Ionicons = ios-book
 	// MaterialCommunityIcons = book
@@ -94,7 +96,6 @@ const FavBottomTabNavigator =
 	Platform.OS === 'android'
 		? createMaterialBottomTabNavigator(tabScreenConfig, {
 				shifting: true,
-				// activeTintColor: Colors.moccasin,
 				defaultNavigationOptions,
 			})
 		: createBottomTabNavigator(tabScreenConfig, {

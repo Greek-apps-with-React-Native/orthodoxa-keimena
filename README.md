@@ -9,11 +9,11 @@ Happy coding :)
 #### react-native-gesture-handler (needed for using react-navigation with expo)
 #### react-native-reanimated (needed for using react-navigation with expo)
 #### react-native-screens
-### react-native-webview
-### react-native-pinch-zoom-view // Not used!
-### @expo/vector-icons
-### react-navigation-material-bottom-tabs
-### react-native-paper
-### Branches explained: 
+#### react-native-webview
+#### react-native-pinch-zoom-view // Not used!
+#### @expo/vector-icons
+#### react-navigation-material-bottom-tabs
+#### react-native-paper
+#### Branches explained: 
 
 

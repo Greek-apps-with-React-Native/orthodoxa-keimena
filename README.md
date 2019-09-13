@@ -10,6 +10,8 @@ Happy coding :)
 #### react-native-reanimated (needed for using react-navigation with expo)
 #### react-native-screens
 ### react-native-webview
+### react-native-pinch-zoom-view // Not used!
+### @expo/vector-icons
 
 ### Branches explained: 
 

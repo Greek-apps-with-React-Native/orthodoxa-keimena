@@ -5,4 +5,6 @@ export default {
     dimgray: '#696969',
     moccasin: '#FFE4B5',
     lightyellow: '#FFFFE0',
+    lightskyblue: '#87CEFA',
+    deepskyblue: '#00BFFF'
 }

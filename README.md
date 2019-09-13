@@ -12,7 +12,8 @@ Happy coding :)
 ### react-native-webview
 ### react-native-pinch-zoom-view // Not used!
 ### @expo/vector-icons
-
+### react-navigation-material-bottom-tabs
+### react-native-paper
 ### Branches explained: 
 
 

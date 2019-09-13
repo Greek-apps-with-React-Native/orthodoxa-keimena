@@ -4,7 +4,7 @@
 import React from 'react';
 import { View, Button, FlatList, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-import { CATEGORIES } from '../data/dummy-data';
+import { CATEGORIES } from '../data/categories';
 import CategoryGridTile from '../components/CategoryGridTile';
 
 const CategoriesScreen = (props) => {

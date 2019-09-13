@@ -1,7 +1,8 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 
-import { CATEGORIES, BOOKS } from '../data/dummy-data';
+import { CATEGORIES} from '../data/categories';
+import { BOOKS } from '../data/books';
 import CategoryGridTile from '../components/CategoryGridTile';
 
 const CategoryBooksScreen = (props) => {

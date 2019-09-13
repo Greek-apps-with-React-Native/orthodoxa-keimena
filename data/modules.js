@@ -15,20 +15,20 @@ export const MODULES = [
         moduleCategory: ['book_1'],
         color: Colors.lightyellow,
         heading: 'ΚΑΤΑ ΜΑΡΚΟΝ',
-        moduleText: '<h1> ΚΕΦΑΛΑΙΟ 1 </h1>',
+        moduleText: '<h1> ΚΑΤΑ ΜΑΡΚΟΝ </h1>',
     }),
     new Module({
         id: 'module_3',
         moduleCategory: ['book_1'],
         color: Colors.lightyellow,
         heading: 'ΚΑΤΑ ΛΟΥΚΑΝ',
-        moduleText: '<h1> ΚΕΦΑΛΑΙΟ 1 </h1>',
+        moduleText: '<h1> ΚΑΤΑ ΛΟΥΚΑΝ </h1>',
     }),
     new Module({
         id: 'module_4',
         moduleCategory: ['book_1'],
         color: Colors.lightyellow,
         heading: 'ΚΑΤΑ ΙΩΑΝΝΗΝ',
-        moduleText: '<h1> ΚΕΦΑΛΑΙΟ 1 </h1>',
+        moduleText: '<h1> ΚΑΤΑ ΙΩΑΝΝΗΝ</h1>',
 	})
 ];

@@ -6,5 +6,7 @@ export default {
     moccasin: '#FFE4B5',
     lightyellow: '#FFFFE0',
     lightskyblue: '#87CEFA',
-    deepskyblue: '#00BFFF'
+    deepskyblue: '#00BFFF',
+    lightgray: '#D3D3D3',
+    darkgray: '#A9A9A9',
 }

@@ -2,10 +2,13 @@
 // e.g. Biblical, Dogmatic, History etc
 
 import React from 'react';
-import { View, Button, FlatList, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { FlatList, Platform } from 'react-native';
+
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import { CATEGORIES } from '../data/categories';
 import CategoryGridTile from '../components/CategoryGridTile';
+import CustomHeaderButton from '../components/CustomHeaderButton';
 
 const CategoriesScreen = (props) => {
 	const renderGridItem = (itemData) => {
@@ -34,9 +37,20 @@ const CategoriesScreen = (props) => {
 	);
 };
 
-CategoriesScreen.navigationOptions = {
-	headerTitle: 'Κατηγορίες κειμένων'
+CategoriesScreen.navigationOptions = (navData) => {
+	return {
+		headerTitle: 'Κατηγορίες κειμένων',
+		headerLeft: (
+			<HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+				<Item
+					onPress={() => navData.navigation.toggleDrawer()}
+					title="Menu"
+					iconName={Platform.OS === 'android' ? 'dots-vertical' : 'menu'}
+					size={23}
+				/>
+			</HeaderButtons>
+		)
+	};
 };
-
 
 export default CategoriesScreen;

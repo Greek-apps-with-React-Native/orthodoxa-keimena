@@ -3,6 +3,7 @@ Don't quit!
 Success! 
 Happy coding :)
 
+
 ### Packages installed:
 #### expo-font (GFSNeohellenic)
 #### react-navigation
@@ -14,6 +15,8 @@ Happy coding :)
 #### @expo/vector-icons
 #### react-navigation-material-bottom-tabs
 #### react-native-paper
-#### Branches explained: 
+
+
+### Branches explained: 
 
 

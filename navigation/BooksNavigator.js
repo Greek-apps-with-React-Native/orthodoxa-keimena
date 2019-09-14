@@ -142,7 +142,6 @@ const MainNavigator = createDrawerNavigator(
 			screen: FiltersNavigator,
 			navigationOptions: {
 				drawerLabel: 'Διηθημένα',
-				// TODO: change filter icon
 				drawerIcon: ({ tintColor, focused }) => {
 					if (focused) {
 					return	<MaterialIcons name="filter-list" size={25} color={tintColor} />;
@@ -156,6 +155,10 @@ const MainNavigator = createDrawerNavigator(
 		hideStatusBar: true,
 		drawerWidth: 200,
 		contentOptions: {
+			labelStyle: {
+				fontFamily: 'GFSNeohellenic-Bold',
+				fontSize: 18
+			},
 			activeBackgroundColor: Platform.OS === 'android' ? Colors.lightskyblue : Colors.accentColor,
 			activeTintColor: Platform.OS === 'android' ? 'white' : Colors.accentColor,
 			inactiveTintColor: Colors.darkgray

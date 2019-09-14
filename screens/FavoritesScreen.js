@@ -1,20 +1,23 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native';
+
+import { BOOKS } from '../data/books';
+import { MODULES } from '../data/modules';
+import ModulesList from '../components/ModulesList';
 
 const FavoritesScreen = (props) => {
-	return (
-		<View style={styles.screen}>
-			<Text>The Favorites Screen</Text>
-		</View>
-	);
-};
+	const displayedModules = MODULES.filter((module) => module.id === 'module_1' || module.id === 'module_4');
+		return (
+			<ModulesList
+				navigation={props.navigation}
+				listData={displayedModules}
+			/>
+		);
 
-const styles = StyleSheet.create({
-	screen: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center'
-	}
-});
+		}
+
+FavoritesScreen.navigationOptions = {
+		headerTitle: 'Αγαπημένα'
+};
 
 export default FavoritesScreen;

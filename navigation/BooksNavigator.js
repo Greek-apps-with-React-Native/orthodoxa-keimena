@@ -14,6 +14,17 @@ import FavoritesScreen from '../screens/FavoritesScreen';
 
 import Colors from '../constants/Colors';
 
+const defaultStackNavOptions = {
+	defaultNavigationOptions: {
+		initialRouteName: 'CategoriesScreen',
+		headerBackTitle: 'Πίσω',
+		headerStyle: {
+			backgroundColor: Platform.OS === 'android' ? Colors.lightskyblue : Colors.lightcyan
+		},
+		headerTintColor: Platform.OS === 'android' ? 'white' : Colors.dimgray
+	}
+}
+
 const BooksNavigator = createStackNavigator(
 	{
 		Categories: {
@@ -25,17 +36,14 @@ const BooksNavigator = createStackNavigator(
 		CategoryModules: CategoryModulesScreen,
 		TextDetail: TextDetailScreen
 	},
-	{
-		defaultNavigationOptions: {
-			initialRouteName: 'CategoriesScreen',
-			headerBackTitle: 'Πίσω',
-			headerStyle: {
-				backgroundColor: Platform.OS === 'android' ? Colors.lightskyblue : Colors.lightcyan
-			},
-			headerTintColor: Colors.dimgray
-		}
-	}
+	defaultStackNavOptions
 );
+
+const FavNavigator = createStackNavigator({
+	Favorites: FavoritesScreen,
+	TextDetail: TextDetailScreen
+}, defaultStackNavOptions
+)
 
 // For FavBottomTabNavigator
 const tabScreenConfig = {
@@ -50,7 +58,7 @@ const tabScreenConfig = {
 		// }
 	},
 	Favorites: {
-		screen: FavoritesScreen,
+		screen: FavNavigator,
 		navigationOptions: {
 			tabBarLabel: 'Αγαπημένα',
 			tabBarColor: Colors.deepskyblue,
@@ -62,7 +70,7 @@ const tabScreenConfig = {
 };
 
 // FavBottomTabNavigator
-const defaultNavigationOptions = ({ navigation }) => ({
+const defaultNavOptions = ({ navigation }) => ({
 	// Ionicons = ios-book
 	// MaterialCommunityIcons = book
 	// FontAwesome = cross
@@ -96,10 +104,10 @@ const FavBottomTabNavigator =
 	Platform.OS === 'android'
 		? createMaterialBottomTabNavigator(tabScreenConfig, {
 				shifting: true,
-				defaultNavigationOptions,
+				defaultNavigationOptions: defaultNavOptions,
 			})
 		: createBottomTabNavigator(tabScreenConfig, {
-				defaultNavigationOptions,
+				defaultNavigationOptions: defaultNavOptions,
 				tabBarOptions: {
 					activeTintColor: Colors.accentColor
 				}

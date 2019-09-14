@@ -5,7 +5,9 @@ import { MODULES } from '../data/modules';
 import ModulesList from '../components/ModulesList';
 
 const CategoryModulesScreen = (props) => {	
+
 	const bookId = props.navigation.getParam('bookId');
+	// dummy-selected favorite modules
 	const displayedModules = MODULES.filter((module) => module.moduleCategory.indexOf(bookId) >= 0);
 		return (
 			<ModulesList

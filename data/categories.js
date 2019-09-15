@@ -3,8 +3,8 @@ import Category from '../models/category';
 
 export const CATEGORIES = [
 	new Category('category_1', 'Βιβλικά', '#FFFACD'), // lemonchiffon
-	new Category('category_2', 'Δογματική', '#48D1CC'), // turquoise
-	new Category('category_3', 'Πατερικά', '#87CEFA'), // lightskyblue
+	new Category('category_2', 'Δογματική', '#AFEEEE'), // paleturquoise
+	new Category('category_3', 'Πατερικά', '#ADD8E6'), // lightskyblue
 	new Category('category_4', 'Αγιολογικά', '#FAF0E6'), // linen
 	new Category('category_5', 'Ασκητικά', '#FFE4B5'), // moccasin
 	new Category('category_6', 'Εκκλησιαστική Ιστορία', '#B0C4DE'), // lightsteelblue

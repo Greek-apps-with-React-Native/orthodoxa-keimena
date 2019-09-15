@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Text } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
@@ -22,6 +22,14 @@ const defaultStackNavOptions = {
 		headerBackTitle: 'Πίσω',
 		headerStyle: {
 			backgroundColor: Platform.OS === 'android' ? Colors.lightskyblue : Colors.lightcyan
+		},
+		headerTitleStyle: {
+			fontFamily: 'GFSNeohellenic-Bold',
+			fontSize: 25
+		},
+		headerBackTitleStyle: {
+			fontFamily: 'GFSNeohellenic-Bold',
+			fontSize: 22
 		},
 		headerTintColor: Platform.OS === 'android' ? 'white' : Colors.dimgray
 	}
@@ -61,7 +69,7 @@ const tabScreenConfig = {
 	Books: {
 		screen: BooksNavigator,
 		navigationOptions: {
-			tabBarLabel: 'Βιβλία',
+			tabBarLabel: <Text style={{ fontFamily: 'GFSNeohellenic-Bold', fontSize: 15 }}>Βιβλία</Text>,
 			tabBarColor: Colors.lightskyblue
 		}
 		// navigationOptions: {
@@ -71,7 +79,7 @@ const tabScreenConfig = {
 	Favorites: {
 		screen: FavoritesNavigator,
 		navigationOptions: {
-			tabBarLabel: 'Αγαπημένα',
+			tabBarLabel: <Text style={{ fontFamily: 'GFSNeohellenic-Bold', fontSize: 15 }}>Αγαπημένα</Text> ,
 			tabBarColor: Colors.deepskyblue
 		}
 		// navigationOptions: {
@@ -120,6 +128,12 @@ const FavBottomTabNavigator =
 		: createBottomTabNavigator(tabScreenConfig, {
 				defaultNavigationOptions: defaultNavOptions,
 				tabBarOptions: {
+					labelStyle: {
+						fontFamily: 'GFSNeohellenic-Bold',
+						fontSize: 15,
+						// padding: 2,
+					},
+					style: { paddingTop: 1 },
 					activeTintColor: Colors.accentColor
 				}
 			});
@@ -144,9 +158,9 @@ const MainNavigator = createDrawerNavigator(
 				drawerLabel: 'Διηθημένα',
 				drawerIcon: ({ tintColor, focused }) => {
 					if (focused) {
-					return	<MaterialIcons name="filter-list" size={25} color={tintColor} />;
+						return <MaterialIcons name="filter-list" size={25} color={tintColor} />;
 					}
-					return <MaterialCommunityIcons name="air-filter" size={25} color={tintColor} />;
+						return <MaterialCommunityIcons name="air-filter" size={25} color={tintColor} />;
 				}
 			}
 		}

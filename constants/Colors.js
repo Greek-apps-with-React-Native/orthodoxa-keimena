@@ -7,6 +7,9 @@ export default {
     lightyellow: '#FFFFE0',
     lightskyblue: '#87CEFA',
     deepskyblue: '#00BFFF',
+    lightblue: '#ADD8E6',
+    darkblue: '#00008B',
+    steelblue: '#4682B4',
     lightgray: '#D3D3D3',
     darkgray: '#A9A9A9',
 }

@@ -134,7 +134,7 @@ const FavBottomTabNavigator =
 						// padding: 2,
 					},
 					style: { paddingTop: 1 },
-					activeTintColor: Colors.accentColor
+					activeTintColor: Colors.lightskyblue
 				}
 			});
 
@@ -173,8 +173,8 @@ const MainNavigator = createDrawerNavigator(
 				fontFamily: 'GFSNeohellenic-Bold',
 				fontSize: 18
 			},
-			activeBackgroundColor: Platform.OS === 'android' ? Colors.lightskyblue : Colors.accentColor,
-			activeTintColor: Platform.OS === 'android' ? 'white' : Colors.accentColor,
+			activeBackgroundColor: Platform.OS === 'android' ? Colors.lightskyblue : 'white',
+			activeTintColor: Platform.OS === 'android' ? 'white' : Colors.deepskyblue,
 			inactiveTintColor: Colors.darkgray
 		}
 	}

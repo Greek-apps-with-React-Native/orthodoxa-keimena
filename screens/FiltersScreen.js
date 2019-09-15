@@ -1,6 +1,6 @@
 // Books of saints, scholars, etc
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, Platform, Switch } from 'react-native';
 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -23,24 +23,47 @@ const FilterSwitch = (props) => {
 };
 
 const FiltersScreen = (props) => {
-	const [ saintsText, setSaintsText ] = useState(false);
-	const [ scholarsText, setScholarsText ] = useState(false);
-				
+	const { navigation } = props;
+
+	const [ isSaintsText, setIsSaintsText ] = useState(false);
+	const [ isScholarsText, setIsScholarsText ] = useState(false);
+
+	// useCallBack to make sure that `saveFilters` runs only when state changes!
+	// Now `saveFilters` only runs if the dependencies of useCallBack change!
+	const saveFilters = useCallback(() => {
+		const appliedFilters = {
+			saintsText: isSaintsText,  
+			scholarsText: isScholarsText
+		};
+		console.log(appliedFilters);
+	}, [isSaintsText, isScholarsText]);
+
+	useEffect(
+		() => {
+			navigation.setParams({ save: saveFilters });
+		},
+		[ saveFilters ]
+	);
+
 	return (
 		<View style={styles.screen}>
 			<Text style={styles.title}>Διηθημένα Κείμενα</Text>
 			<FilterSwitch
 				thumbColor={Colors.steelblue}
 				trackColor={{ true: Colors.lightblue }}
-				value={saintsText}
-				onValueChange={(newValue) => setSaintsText(newValue)}
-			>Κείμενα Αγίων</FilterSwitch>
+				value={isSaintsText}
+				onValueChange={(newValue) => setIsSaintsText(newValue)}
+			>
+				Κείμενα Αγίων
+			</FilterSwitch>
 			<FilterSwitch
 				thumbColor={Colors.steelblue}
 				trackColor={{ true: Colors.lightblue }}
-				value={scholarsText}
-				onValueChange={(newValue) => setScholarsText(newValue)}
-			>Κείμενα Ακαδημαϊκών</FilterSwitch>
+				value={isScholarsText}
+				onValueChange={(newValue) => setIsScholarsText(newValue)}
+			>
+				Κείμενα Ακαδημαϊκών
+			</FilterSwitch>
 		</View>
 	);
 };
@@ -54,6 +77,17 @@ FiltersScreen.navigationOptions = (navData) => {
 					onPress={() => navData.navigation.toggleDrawer()}
 					title="Menu"
 					iconName={Platform.OS === 'android' ? 'dots-vertical' : 'menu'}
+					size={23}
+					/>
+			</HeaderButtons>
+		),
+		headerRight: (
+			<HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+				<Item
+					// Get the params from above (see saveFilters)
+					onPress={navData.navigation.getParam('save')}
+					title="Menu"
+					iconName='content-save'
 					size={23}
 				/>
 			</HeaderButtons>

@@ -6,7 +6,8 @@ const initialState = {
     books: BOOKS,
     filteredBooks: BOOKS,
     modules: MODULES,
-    favoriteModules: []
+    favoriteModules: [],
+    favoriteExists: false
 }
 
 const booksReducer = (state = initialState, action) => {
@@ -16,10 +17,10 @@ const booksReducer = (state = initialState, action) => {
             if (existingIndex >= 0) {
                 const updatedFavModules = [...state.favoriteModules];
                 updatedFavModules.splice(existingIndex, 1);
-                return {...state, favoriteModules: updatedFavModules}
+                return {...state, favoriteModules: updatedFavModules, favoriteExists: false}
             } else {
                 const favModule = state.modules.find(module => module.id === action.moduleId)
-                return {...state, favoriteModules: state.favoriteModules.concat(favModule)}
+                return {...state, favoriteModules: state.favoriteModules.concat(favModule), favoriteExists: true}
             }
         }
             

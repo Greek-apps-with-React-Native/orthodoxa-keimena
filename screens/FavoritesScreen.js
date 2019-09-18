@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, View, Text, StyleSheet } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector } from 'react-redux';
 
@@ -7,13 +7,30 @@ import CustomHeaderButton from '../components/CustomHeaderButton';
 import ModulesList from '../components/ModulesList';
 
 const FavoritesScreen = (props) => {
-	
-	// Dummy data for getting some favorite modules.
-	// const displayedModules = modules.filter((module) => module.id === 'module_1' || module.id === 'module_4');
-	
-	const favoriteModules = useSelector(state => state.books.favoriteModules);
-	return <ModulesList navigation={props.navigation} listData={favoriteModules} />;
+	const favoriteModules = useSelector((state) => state.books.favoriteModules);
+	if (favoriteModules.length === 0) {
+		return (
+			<View style={styles.container} >
+				<Text style={styles.text} >Ακόμη δεν έχετε επιλέξει</Text>
+				<Text style={styles.text} >αγαπημένα κείμενα.</Text>
+			</View>
+		);
+	} else {
+		return <ModulesList navigation={props.navigation} listData={favoriteModules} />;
+	}
 };
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center'
+	}, 
+	text: {
+		fontFamily: 'GFSNeohellenic-Bold',
+		fontSize: 30
+	}
+})
 
 FavoritesScreen.navigationOptions = (navData) => {
 	return {

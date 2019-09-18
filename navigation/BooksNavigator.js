@@ -134,7 +134,7 @@ const FavBottomTabNavigator =
 						// padding: 2,
 					},
 					style: { paddingTop: 1 },
-					activeTintColor: Colors.lightskyblue
+					activeTintColor: Colors.deepskyblue
 				}
 			});
 

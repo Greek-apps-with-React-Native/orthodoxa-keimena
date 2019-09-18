@@ -12,6 +12,7 @@ const CategoryModulesScreen = (props) => {
 
 	// Get the modules of each book.
 	const displayedModules = modules.filter((module) => module.moduleCategory.indexOf(bookId) >= 0);
+
 	return <ModulesList navigation={props.navigation} listData={displayedModules} />;
 };
 CategoryModulesScreen.navigationOptions = (navData) => {

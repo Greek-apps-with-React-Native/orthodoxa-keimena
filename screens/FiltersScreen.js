@@ -44,19 +44,6 @@ const FiltersScreen = (props) => {
 		},
 		[ isScholarText, dispatch ]
 	);
-	// useCallBack to make sure that `saveFilters` runs only when state changes!
-	// Now `saveFilters` only runs if the dependencies of useCallBack change!
-	// const saveFilters = useCallback(
-	// 	() => {
-	// 		const appliedFilters = {
-	// 			saintsText: isHollyText,
-	// 			scholarsText: isScholarText
-	// 		};
-	// 		console.log(appliedFilters);
-	// 	},
-	// 	[ isHollyText, isScholarText ]
-	// );
-
 	useEffect(() => {
 		const appliedFilters = {
 			isHolly: isHollyText,
@@ -64,13 +51,6 @@ const FiltersScreen = (props) => {
 		};
 		dispatch(setFilters(appliedFilters))
 	}, [isHollyText, isScholarText, dispatch])
-
-	// useEffect(
-	// 	() => {
-	// 		navigation.setParams({ save: saveFilters });
-	// 	},
-	// 	[ saveFilters ]
-	// );
 
 	return (
 		<View style={styles.screen}>

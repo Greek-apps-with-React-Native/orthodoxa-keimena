@@ -1,8 +1,9 @@
 import React from 'react';
 import { FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
+
 
 import { CATEGORIES} from '../data/categories';
-import { BOOKS } from '../data/books';
 import CategoryGridTile from '../components/CategoryGridTile';
 
 const CategoryBooksScreen = (props) => {
@@ -16,6 +17,7 @@ const CategoryBooksScreen = (props) => {
 					routeName: 'CategoryModules',
 					params: {
 						bookId: itemData.item.id,
+						bookTitle: itemData.item.title,
 					}
 				});
 			}}
@@ -25,7 +27,10 @@ const CategoryBooksScreen = (props) => {
 	// Here you get the books according to their id's
 	// i.e. if they belong to Biblical etc.
 	const catId = props.navigation.getParam('categoryId');
-	const displayedTexts = BOOKS.filter(text => text.categoryIds.indexOf(catId) >=0)
+	
+	// Get the books from redux store. The 2d `books` is from App.js
+	const availableBooks = useSelector(state => state.books.filteredBooks); 
+	const displayedTexts = availableBooks.filter(text => text.categoryIds.indexOf(catId) >=0)
 	return (
 			<FlatList 
 				numColumns={2} 

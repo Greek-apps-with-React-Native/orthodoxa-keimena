@@ -1,30 +1,24 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { BOOKS } from '../data/books';
-import { MODULES } from '../data/modules';
 import ModulesList from '../components/ModulesList';
 
-const CategoryModulesScreen = (props) => {	
+const CategoryModulesScreen = (props) => {
+	// Get modules from Redux store.
+	const modules = useSelector((state) => state.books.modules);
 
+	// Get bookId you set in CategoryBooksScreen.
 	const bookId = props.navigation.getParam('bookId');
-	// dummy-selected favorite modules
-	const displayedModules = MODULES.filter((module) => module.moduleCategory.indexOf(bookId) >= 0);
-		return (
-			<ModulesList
-				navigation={props.navigation}
-				listData={displayedModules}
-			/>
-		);
 
-		}
-	CategoryModulesScreen.navigationOptions = (navData) => {
-		const bookId = navData.navigation.getParam('bookId');
-		const selectedBook = BOOKS.find((book) => book.id === bookId);
-
-		return {
-			headerTitle: selectedBook.title
-		};
-	
+	// Get the modules of each book.
+	const displayedModules = modules.filter((module) => module.moduleCategory.indexOf(bookId) >= 0);
+	return <ModulesList navigation={props.navigation} listData={displayedModules} />;
+};
+CategoryModulesScreen.navigationOptions = (navData) => {
+	return {
+		// Get bookTitle you set in CategoryBooksScreen.
+		headerTitle: navData.navigation.getParam('bookTitle')
+	};
 };
 
 export default CategoryModulesScreen;

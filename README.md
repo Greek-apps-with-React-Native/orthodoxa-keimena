@@ -15,6 +15,9 @@ Happy coding :)
 #### @expo/vector-icons
 #### react-navigation-material-bottom-tabs
 #### react-native-paper
+#### redux 
+#### react-redux
+
 
 
 ### Branches explained: 

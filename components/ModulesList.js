@@ -14,7 +14,11 @@ const ModulesList = (props) => {
 					//  We have a `navigation` prop because we forwarded it in CategoryMealsScreen.
 						props.navigation.navigate({
 						routeName: 'TextDetail',
-						params: { moduleId: itemData.item.id }
+						params: { 
+							moduleId: itemData.item.id,
+							moduleHeading: itemData.item.heading,
+						
+						}
 					});
 				}}
 			/>

@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import * as Fonts from 'expo-font';
 import { AppLoading } from 'expo';
 import { useScreens } from 'react-native-screens';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 
 import BooksNavigator from './navigation/BooksNavigator';
+import booksReducer from './store/reducers/books';
 
 useScreens();
- 
+
+const rootReducer = combineReducers({
+	books: booksReducer
+});
+
+const store = createStore(rootReducer);
+
 const fetchFonts = () => {
 	return Fonts.loadAsync({
 		'GFSNeohellenic-Bold': require('./assets/Fonts/GFSNeohellenic-Bold.ttf'),
@@ -24,7 +32,9 @@ export default function App() {
 		return <AppLoading startAsync={fetchFonts} onFinish={() => setFontLoaded(true)} />;
 	}
 
-	return <BooksNavigator />;
+	return (
+		<Provider store={store}>
+			<BooksNavigator />
+		</Provider>
+	);
 }
-
-

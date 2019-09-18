@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, Platform, Switch } from 'react-native';
-
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { useDispatch } from 'react-redux';
 
 import Colors from '../constants/Colors';
 import CustomHeaderButton from '../components/CustomHeaderButton';
+import { setFilters } from '../store/actions/books';
 
 const FilterSwitch = (props) => {
 	return (
@@ -23,27 +24,53 @@ const FilterSwitch = (props) => {
 };
 
 const FiltersScreen = (props) => {
-	const { navigation } = props;
+	// const { navigation } = props;
 
-	const [ isSaintsText, setIsSaintsText ] = useState(false);
-	const [ isScholarsText, setIsScholarsText ] = useState(false);
+	const [ isHollyText, setIsHollyText ] = useState(false);
+	const [ isScholarText, setIsScholarText ] = useState(false);
 
+	const dispatch = useDispatch();
+
+	const saveIsHolly = useCallback(
+		(newValue) => {
+			setIsHollyText(newValue);
+		},
+		[ isHollyText, dispatch ]
+	);
+
+	const saveIsScholar = useCallback(
+		(newValue) => {
+			setIsScholarText(newValue);
+		},
+		[ isScholarText, dispatch ]
+	);
 	// useCallBack to make sure that `saveFilters` runs only when state changes!
 	// Now `saveFilters` only runs if the dependencies of useCallBack change!
-	const saveFilters = useCallback(() => {
-		const appliedFilters = {
-			saintsText: isSaintsText,  
-			scholarsText: isScholarsText
-		};
-		console.log(appliedFilters);
-	}, [isSaintsText, isScholarsText]);
+	// const saveFilters = useCallback(
+	// 	() => {
+	// 		const appliedFilters = {
+	// 			saintsText: isHollyText,
+	// 			scholarsText: isScholarText
+	// 		};
+	// 		console.log(appliedFilters);
+	// 	},
+	// 	[ isHollyText, isScholarText ]
+	// );
 
-	useEffect(
-		() => {
-			navigation.setParams({ save: saveFilters });
-		},
-		[ saveFilters ]
-	);
+	useEffect(() => {
+		const appliedFilters = {
+			isHolly: isHollyText,
+			isScholarly: isScholarText
+		};
+		dispatch(setFilters(appliedFilters))
+	}, [isHollyText, isScholarText, dispatch])
+
+	// useEffect(
+	// 	() => {
+	// 		navigation.setParams({ save: saveFilters });
+	// 	},
+	// 	[ saveFilters ]
+	// );
 
 	return (
 		<View style={styles.screen}>
@@ -51,16 +78,16 @@ const FiltersScreen = (props) => {
 			<FilterSwitch
 				thumbColor={Colors.steelblue}
 				trackColor={{ true: Colors.lightblue }}
-				value={isSaintsText}
-				onValueChange={(newValue) => setIsSaintsText(newValue)}
+				value={isHollyText}
+				onValueChange={saveIsHolly}
 			>
 				Κείμενα Αγίων
 			</FilterSwitch>
 			<FilterSwitch
 				thumbColor={Colors.steelblue}
 				trackColor={{ true: Colors.lightblue }}
-				value={isScholarsText}
-				onValueChange={(newValue) => setIsScholarsText(newValue)}
+				value={isScholarText}
+				onValueChange={saveIsScholar}
 			>
 				Κείμενα Ακαδημαϊκών
 			</FilterSwitch>
@@ -77,17 +104,6 @@ FiltersScreen.navigationOptions = (navData) => {
 					onPress={() => navData.navigation.toggleDrawer()}
 					title="Menu"
 					iconName={Platform.OS === 'android' ? 'dots-vertical' : 'menu'}
-					size={23}
-					/>
-			</HeaderButtons>
-		),
-		headerRight: (
-			<HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-				<Item
-					// Get the params from above (see saveFilters)
-					onPress={navData.navigation.getParam('save')}
-					title="Menu"
-					iconName='content-save'
 					size={23}
 				/>
 			</HeaderButtons>

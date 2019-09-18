@@ -32,7 +32,7 @@ const TextDetailScreen = (props) => {
 		[ dispatch, moduleId ]
 	);
 
-	const favoriteExists = useSelector(state => state.books.favoriteExists)
+	// Get true/false if current Module is favorite, to use in navigationOptions to change favIcon color...
 	const currendModuleIsFavorite = useSelector(state => state.books.favoriteModules.some(module => module.id === moduleId))
 	useEffect(
 		() => {

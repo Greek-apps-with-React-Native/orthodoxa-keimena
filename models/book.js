@@ -3,7 +3,7 @@ function Book(info) {
     this.categoryIds = info.categoryIds;
     this.color = info.color;
     this.title =  info.title; 
-    this.holly = info.holly; 
-    this.scholarly = info.scholarly;
+    this.isHolly = info.isHolly; 
+    this.isScholarly = info.isScholarly;
 }
 export default Book;
